@@ -13,4 +13,7 @@ _probcli()
     fi
     COMPREPLY=( $opts )
 }
-complete -F _probcli probcli.sh
+#complete -F _probcli probcli.sh
+complete -o bashdefault -o default -o nospace -F _probcli probcli.sh
+complete -o bashdefault -o default -o nospace -F _probcli probcli
+
