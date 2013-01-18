@@ -1,4 +1,5 @@
-prob_completion
-===============
+ProB Bash Completion
+====================
 
-Bash autocompletion for ProB
+Source the prob\_completion.sh file to get bash autocompletion for ProB cli command line
+arguments.
