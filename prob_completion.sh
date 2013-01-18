@@ -13,4 +13,4 @@ _probcli()
     fi
     COMPREPLY=( $opts )
 }
-complete -D -F _probcli probcli.sh
+complete -F _probcli probcli.sh
