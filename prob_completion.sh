@@ -2,7 +2,12 @@ _probcli()
 {
     cmd=${COMP_WORDS[0]}
     cur=${COMP_WORDS[COMP_CWORD]}
-    opts=$(${cmd} -h | grep '^\s\{1,\}\-\w' | awk '{ print $1 }')
+    cache="/tmp/$(basename "${cmd}")_cache.txt"
+    if [ ! -f "${cache}" ]
+    then
+      ${cmd} -h >> "${cache}"
+    fi
+    opts=$(cat "${cache}" | grep '^\s\{1,\}\-\w' | awk '{ print $1 }')
     # filter options if we have a current prefix
     if [ $cur ]; then
       # escape leading "-" 
