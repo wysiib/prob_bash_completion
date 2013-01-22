@@ -7,7 +7,7 @@ _probcli_pref_opts()
 _probcli_common_opts()
 {
     opts=$(cat "${cache}" \
-        | grep '^\s\{1,\}\-\w' \
+        | grep '^\s\{1,\}\-\{1,\}\w' \
         | awk '{ print $1 }')
 }
 _probcli()
