@@ -4,6 +4,21 @@ _probcli_pref_opts()
         | grep '^\s\{1,\}[A-Z]\w*\s\{1,\}:' \
         | awk '{print $1}')
 }
+_probcli_pref_values()
+{
+    type=$(cat "${cache}" \
+        | grep "^\s\{1,\}${prev}\s\{1,\}:\s[A-Z]*" \
+        | awk '{print $3}')
+
+    case $type in
+        bool)
+	    opts=$'TRUE\nFALSE'
+	    ;;
+	*)
+	    opts=( )
+	    ;;
+    esac
+}
 _probcli_common_opts()
 {
     opts=$(cat "${cache}" \
@@ -29,6 +44,8 @@ _probcli()
 
     if [ "${prev}" = "-p" ]; then
       _probcli_pref_opts
+    elif [ ${COMP_CWORD} -gt 2 ] && [ "${COMP_WORDS[$((${COMP_CWORD}-2))]}" = "-p" ]; then
+      _probcli_pref_values
     else
       _probcli_common_opts
     fi
