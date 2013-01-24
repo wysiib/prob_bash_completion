@@ -8,16 +8,13 @@ _probcli_common_opts()
 }
 _probcli()
 {
-    local cmd=${COMP_WORDS[0]}
+		# COMP_WORDS
+    # [0] => command
+		# [COMP_CWORD] => current word
+
     local cur=${COMP_WORDS[${COMP_CWORD}]}
     local prev=${COMP_WORDS[$((${COMP_CWORD}-1))]}
 
-    eval cmd=$cmd
-    cache="/tmp/$(basename "${cmd}")_cache.txt"
-    # fill cache
-    if [ ! -f "${cache}" ]; then
-      ${cmd} -h -v >> "${cache}"
-    fi
     # escape leading "-"
     if [ "-" = "${cur:0:1}" ]; then
       cur="\\"${cur}
