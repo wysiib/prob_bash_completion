@@ -1,14 +1,10 @@
 _probcli_pref_opts()
 {
-    opts=$(cat "${cache}" \
-        | grep '^\s\{1,\}[A-Z]\w*\s\{1,\}:' \
-        | awk '{print $1}')
+    opts=%{pref_opts}
 }
 _probcli_common_opts()
 {
-    opts=$(cat "${cache}" \
-        | grep '^\s\{1,\}\-\w' \
-        | awk '{ print $1 }')
+    opts=%{opts}
 }
 _probcli()
 {
