@@ -11,3 +11,9 @@ make PROBCLI=<path to probcli>
 
 This generates a prob\_completion.sh file. Sourcing this file will enable
 autocompletion support for probcli and probcli.sh.
+
+Add the following line somewhere in your bash startup files:
+
+```
+source <path to prob_completion.sh>
+```
