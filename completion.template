@@ -9,7 +9,7 @@ _probcli_common_opts()
 _probcli()
 {
 		# COMP_WORDS
-    # [0] => command
+        # [0] => command
 		# [COMP_CWORD] => current word
 
     local cur=${COMP_WORDS[${COMP_CWORD}]}
