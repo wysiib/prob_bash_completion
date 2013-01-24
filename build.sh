@@ -10,7 +10,7 @@ pref_opts=$(cat cache.txt \
 			| awk '{print $1}')
 
 opts=$(cat cache.txt \
-		| grep '^\s\{1,\}\-\w' \
+		| grep '^\s\{1,\}\-\{1,\}\w' \
 		| awk '{ print $1 }')
 rm cache.txt &> /dev/null
 
